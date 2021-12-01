@@ -11,7 +11,7 @@ const config = {
 			postcss: true,
 
 			scss: {
-				prependData: '@import "src/variables.scss";'
+				prependData: '@import "src/css/variables.scss";'
 			}
 		})
 	],
@@ -33,7 +33,7 @@ const config = {
 			css: {
 				preprocessorOptions: {
 					scss: {
-						additionalData: '@import "src/variables.scss";'
+						additionalData: '@import "src/css/variables.scss";'
 					}
 				}
 			}
