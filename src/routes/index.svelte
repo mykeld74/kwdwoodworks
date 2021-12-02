@@ -6,12 +6,17 @@
 	<title>KWD Woodworks</title>
 	<meta
 		name="description"
-		content="Join us for a casual and meaningful community celebration of Christmas"
+		content="Genuine handcrafted wood furniture and accessories for your home or office."
 	/>
 </svelte:head>
 
 <main>
 	<div class="hero">
+		<!-- <div class="backgroundImage"><Image source="wood" altText="Wood" /></div> -->
+
+		<div class="description">
+			<h1>Handcrafted wood funiture and accessories.</h1>
+		</div>
 		<div class="logoContainer">
 			<div class="logo"><Image source="kwdLogo" altText="KWD Logo" /></div>
 			<div class="sawBladeContainer">
@@ -39,43 +44,89 @@
 	}
 	@keyframes rollIn {
 		0% {
-			transform: translate3d(-100vw, 0, 2em) scale(0.3);
-			opacity: 0;
+			transform: translate3d(-70vw, 10vh, 0) scale(0.3) rotate3d(0, -5, 0, -120deg);
+		}
+		30% {
+			transform: translate3d(-90vw, 0, 0) scale(0.7);
 		}
 		100% {
 			transform: translate3d(0) scale(1);
+		}
+	}
+	@keyframes zoomIn {
+		0% {
+			transform: scale(0);
+			opacity: 0;
+		}
+		100% {
+			transform: scale(1);
 			opacity: 1;
 		}
 	}
 	.hero {
-		display: flex;
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 		align-items: center;
-		justify-content: flex-end;
-		padding: 10px 3vw;
+		justify-content: center;
+		justify-items: center;
+		padding: 20px;
+		overflow: hidden;
+		gap: 20px;
+		background: url('https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto/wood')
+			no-repeat center center;
+	}
+	/* .backgroundImage {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -2;
+	} */
+	.description {
+		padding: 0;
+		text-shadow: 2px 2px 4px #000000;
+		max-width: 80%;
 	}
 	.logoContainer {
 		position: relative;
-		width: 400px;
+		width: 80vw;
+		height: 80vw;
+		max-width: 400px;
+		max-height: 400px;
 		display: grid;
-		grid-template-columns: 1fr;
 		align-items: center;
 		justify-items: center;
-		animation: rollIn 2s ease-in-out;
+		animation: rollIn 1.5s ease-in-out;
+		@media (prefers-reduced-motion) {
+			animation-name: none;
+		}
+		@media (max-width: 400px) {
+			animation: zoomIn 1.5s ease-in-out;
+		}
 	}
 	.logo {
 		width: 80%;
-		transform: translateY(12%);
+		z-index: 5;
 	}
 	.sawBladeContainer {
 		position: absolute;
 		top: 0;
-		left: 0;
+		right: 0;
 		width: 100%;
 		height: 100%;
-		z-index: -1;
+		/* z-index: -1; */
 	}
 	.sawBlade {
 		fill: #000;
 		animation: spin 7s linear infinite;
+		@media (prefers-reduced-motion) {
+			animation-name: none;
+		}
+	}
+	h1 {
+		color: #fff;
+		font-size: clamp(40px, 5vw, 60px);
 	}
 </style>
