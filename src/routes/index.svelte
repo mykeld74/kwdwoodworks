@@ -74,7 +74,7 @@
 		overflow: hidden;
 		gap: 20px;
 		background: url('https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto/wood')
-			no-repeat center center;
+			no-repeat center center/cover;
 	}
 	/* .backgroundImage {
 		width: 100%;
