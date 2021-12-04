@@ -1,0 +1,41 @@
+<script>
+	import Card from '$components/card.svelte';
+	export let Products;
+</script>
+
+<section class="projects">
+	<p class="sectionHeadline">
+		Below are a few of the projects I have completed please check back often to see our new projects
+	</p>
+
+	<div class="container">
+		{#each Products as { title, desc, image }}
+			<Card {title} {desc} {image} />
+		{/each}
+	</div>
+</section>
+
+<style>
+	.projects {
+		width: calc(100% - 40px);
+		max-width: 1200px;
+		margin: 0 auto;
+		background: rgba(255, 255, 255, 0.7);
+	}
+	.sectionHeadline {
+		font-size: 1.5rem;
+		font-weight: bold;
+		padding: 20px;
+		margin-bottom: 0;
+	}
+	.container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		gap: 20px;
+		padding: 20px;
+		margin-top: 20px;
+	}
+</style>

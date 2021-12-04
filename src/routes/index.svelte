@@ -1,5 +1,8 @@
 <script>
 	import Image from '$components/image.svelte';
+	import Projects from '$components/projects.svelte';
+	import Stuff from '$data/products.json';
+	const Products = Stuff.products;
 </script>
 
 <svelte:head>
@@ -29,6 +32,7 @@
 			</div>
 		</div>
 	</div>
+	<Projects {Products} />
 </main>
 
 <style lang="scss">
@@ -73,8 +77,11 @@
 		padding: 20px;
 		overflow: hidden;
 		gap: 20px;
-		background: url('https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto/wood')
-			no-repeat center center/cover;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+		background: url('https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto/Workbench1')
+			0 65% / cover no-repeat;
+		/* background: url('https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto/Workbench2')
+			0 95% / cover no-repeat; */
 	}
 	/* .backgroundImage {
 		width: 100%;
