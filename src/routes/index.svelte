@@ -1,9 +1,32 @@
+<script context="module">
+	import client from '$lib/client';
+
+	export async function load() {
+		const query = `*[_type == "product"] | order(order asc){
+			_id,
+			title,
+			desc,
+			slug,
+			"additionalImages": images[].asset->originalFilename,
+			"featuredImageUrl": featuredImage.asset->originalFilename,
+			categories[]->{title, "slug":slug.current, parents[]->{title, "slug":slug.current}},
+		}`;
+		const Products = await client.fetch(query);
+		return { props: { Products } };
+	}
+</script>
+
 <script>
 	import Image from '$components/image.svelte';
 	import Projects from '$components/projects.svelte';
+	export let Products;
+</script>
+
+<!-- <script>
+	
 	import Stuff from '$data/products.json';
 	const Products = Stuff.products;
-</script>
+</script> -->
 
 <svelte:head>
 	<title>KWD Woodworks</title>
@@ -21,7 +44,7 @@
 			<h1>Handcrafted wood funiture and accessories.</h1>
 		</div>
 		<div class="logoContainer">
-			<div class="logo"><Image source="kwdLogo" altText="KWD Logo" /></div>
+			<div class="logo"><Image source="kwdLogo" altText="KWD Logo" width="350" /></div>
 			<div class="sawBladeContainer">
 				<svg viewBox="0 0 4500 4500" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
@@ -32,6 +55,7 @@
 			</div>
 		</div>
 	</div>
+
 	<Projects {Products} />
 </main>
 

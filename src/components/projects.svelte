@@ -1,16 +1,18 @@
 <script>
 	import Card from '$components/card.svelte';
+
 	export let Products;
 </script>
 
 <section class="projects">
 	<p class="sectionHeadline">
-		Below are a few of the projects I have completed please check back often to see our new projects
+		Below are a few of the projects we have completed please check back often to see our new
+		projects.
 	</p>
 
 	<div class="container">
-		{#each Products as { title, desc, image }}
-			<Card {title} {desc} {image} />
+		{#each Products as { title, desc, featuredImageUrl }}
+			<Card {title} {desc} image={featuredImageUrl} width="400" />
 		{/each}
 	</div>
 </section>
@@ -21,6 +23,7 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		background: rgba(255, 255, 255, 0.7);
+		border-radius: 10px;
 	}
 	.sectionHeadline {
 		font-size: 1.5rem;

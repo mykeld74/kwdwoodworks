@@ -9,6 +9,12 @@ export default {
 			type: 'string'
 		},
 		{
+			name: 'order',
+			title: 'Order',
+			type: 'number',
+			hidden: true
+		},
+		{
 			name: 'slug',
 			title: 'Slug',
 			type: 'slug',
@@ -29,6 +35,11 @@ export default {
 					type: 'string'
 				}
 			]
+		},
+		{
+			name: 'desc',
+			title: 'Description',
+			type: 'string'
 		},
 		{
 			name: 'images',
@@ -64,19 +75,19 @@ export default {
 		// 		}
 		// 	]
 		// },
-		{
-			title: 'Tags',
-			name: 'tags',
-			type: 'array',
-			of: [
-				{
-					type: 'string'
-				}
-			],
-			options: {
-				layout: 'tags'
-			}
-		},
+		// {
+		// 	title: 'Tags',
+		// 	name: 'tags',
+		// 	type: 'array',
+		// 	of: [
+		// 		{
+		// 			type: 'string'
+		// 		}
+		// 	],
+		// 	options: {
+		// 		layout: 'tags'
+		// 	}
+		// },
 		// {
 		// 	name: 'blurb',
 		// 	title: 'Blurb',
@@ -92,11 +103,6 @@ export default {
 					to: { type: 'category' }
 				}
 			]
-		},
-		{
-			name: 'body',
-			title: 'Body',
-			type: 'localeBlockContent'
 		}
 	],
 

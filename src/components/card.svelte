@@ -3,11 +3,13 @@
 	export let title;
 	export let desc;
 	export let image;
+	export let width;
 </script>
 
 <div class="card">
 	<div class="card-image">
-		<Img source={image} altText={title} />
+		<Img source={image} altText={title} {width} />
+		<!-- <img src={image} alt={title} /> -->
 	</div>
 	<div class="card-body">
 		<h2 class="card-title">{title}</h2>

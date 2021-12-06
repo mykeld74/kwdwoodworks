@@ -1,7 +1,7 @@
 {
 	"root": true,
 	"project": {
-		"name": "KWD Wood Works"
+		"name": "KWD Woodworks"
 	},
 	"api": {
 		"projectId": "wdj0kczy",
@@ -13,7 +13,8 @@
 		"@sanity/default-login",
 		"@sanity/desk-tool",
 		"barcode-input",
-		"asset-source-cloudinary"
+		"asset-source-cloudinary",
+		"order-documents"
 	],
 	"env": {
 		"development": {
