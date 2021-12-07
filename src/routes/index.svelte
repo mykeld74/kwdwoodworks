@@ -64,7 +64,6 @@
 			to you. Please complete the form below and we'll be in touch.
 		</p>
 		<form name="contact" method="POST" data-netlify="true">
-			<input type="hidden" name="form-name" value="name_of_my_form" />
 			<div class="formBlock">
 				<label for="name">Name*</label>
 				<input type="text" name="name" id="name" placeholder="Name" required />
