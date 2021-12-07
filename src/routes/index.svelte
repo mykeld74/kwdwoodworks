@@ -63,7 +63,7 @@
 			Are you looking for high quality custom built furniture or accesories? We would love to talk
 			to you. Please complete the form below and we'll be in touch.
 		</p>
-		<form name="contact" netlify>
+		<form name="contact" netlify data-netlify="true">
 			<div class="formBlock">
 				<label for="name">Name*</label>
 				<input type="text" name="name" id="name" placeholder="Name" required />
