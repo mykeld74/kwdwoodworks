@@ -33,7 +33,7 @@
 			body: new URLSearchParams(formData).toString()
 		})
 			.then(() => {
-				console.log('Form successfully submitted'), (showTYModal = true);
+				console.log('Form successfully submitted'), (showTYModal = true), myForm.reset();
 			})
 			.catch((error) => alert(error));
 	};
@@ -95,7 +95,7 @@
 			<button type="submit" on:click={handleSubmit}>Send</button>
 		</form>
 		{#if showTYModal}
-			<div><h1>Bam!</h1></div>
+			<div><p>Thank you for your submission, we'll be in touch soon.</p></div>
 		{/if}
 	</div>
 </main>
