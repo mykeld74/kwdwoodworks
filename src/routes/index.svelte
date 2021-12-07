@@ -57,6 +57,32 @@
 	</div>
 
 	<Projects {Products} />
+	<div class="divider"><p>Contact Us</p></div>
+	<div class="formContainer">
+		<p class="formHeader">
+			Are you looking for high quality custom built furniture or accesories? We would love to talk
+			to you. Please complete the form below and we'll be in touch.
+		</p>
+		<form name="contact" netlify>
+			<div class="formBlock">
+				<label for="name">Name*</label>
+				<input type="text" name="name" id="name" placeholder="Name" required />
+			</div>
+			<div class="formBlock">
+				<label for="email">Email*</label>
+				<input type="email" name="email" id="email" placeholder="Email" required />
+			</div>
+			<div class="formBlock">
+				<label for="phone">Phone</label>
+				<input type="tel" name="phone" id="phone" placeholder="Phone" />
+			</div>
+			<div class="formBlock">
+				<label for="message">Message*</label>
+				<textarea name="message" id="message" placeholder="Message" required />
+			</div>
+			<button type="submit">Send</button>
+		</form>
+	</div>
 </main>
 
 <style lang="scss">
@@ -159,5 +185,67 @@
 	h1 {
 		color: #fff;
 		font-size: clamp(40px, 5vw, 60px);
+	}
+	.divider {
+		margin: 20px 0;
+		color: #fff;
+		background: #000;
+		padding: 20px;
+		text-align: center;
+		p {
+			font-size: clamp(20px, 5vw, 40px);
+			margin: 0;
+			font-weight: 700;
+		}
+	}
+	.formContainer {
+		width: calc(100% - 40px);
+		max-width: 600px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-items: center;
+		flex-direction: column;
+		background: rgba(0, 0, 0, 0.8);
+		padding: 20px;
+		border-radius: 10px;
+		form {
+			width: 100%;
+		}
+		p {
+			color: #fff;
+			font-size: clamp(20px, 3.5vw, 26px);
+		}
+	}
+	.formBlock {
+		width: 100%;
+
+		label {
+			display: block;
+			color: #fff;
+			margin: 15px 0 0 0;
+			font-size: clamp(18px, 2.5vw, 22px);
+		}
+		input,
+		textarea {
+			width: 100%;
+			padding: 10px 5px;
+			border-radius: 5px;
+			border: none;
+			font-size: clamp(18px, 2.7vw, 22px);
+			margin: 10px 0;
+			font-weight: 400;
+			background: #fff;
+		}
+	}
+	button {
+		width: 100%;
+		padding: 10px 5px;
+		border-radius: 5px;
+		border: none;
+		font-size: clamp(18px, 3vw, 24px);
+		font-weight: 700;
+		background: green;
+		color: #fff;
 	}
 </style>

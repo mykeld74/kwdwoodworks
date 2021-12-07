@@ -5,10 +5,15 @@
 	onMount(() => {
 		isLoaded = true;
 	});
+	const d = new Date();
+	let year = d.getFullYear();
 </script>
 
 <div class={isLoaded ? 'container' : 'isNotLoaded container'}>
 	<slot />
+	<footer>
+		@copyright {year} KWD Woodworks
+	</footer>
 </div>
 
 <style>
@@ -21,5 +26,11 @@
 			0 0 / cover no-repeat fixed;
 		width: 100%;
 		min-height: 200vh;
+	}
+	footer {
+		background: #000;
+		color: #fff;
+		padding: 20px;
+		margin-top: 30px;
 	}
 </style>
