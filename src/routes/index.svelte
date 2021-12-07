@@ -1,5 +1,6 @@
 <script context="module">
 	import client from '$lib/client';
+	export const prerender = true;
 
 	export async function load() {
 		const query = `*[_type == "product"] | order(order asc){
@@ -20,13 +21,29 @@
 	import Image from '$components/image.svelte';
 	import Projects from '$components/projects.svelte';
 	export let Products;
-</script>
+	let showTYModal = false;
 
-<!-- <script>
-	
-	import Stuff from '$data/products.json';
-	const Products = Stuff.products;
-</script> -->
+	// function encode(data) {
+	// 	return Object.keys(data)
+	// 		.map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+	// 		.join('&');
+	// }
+
+	// const handleSubmit = (event) => {
+	// 	event.preventDefault();
+	// 	let myForm = document.getElementById('contact');
+	// 	let formData = new FormData(myForm);
+	// 	fetch('/', {
+	// 		method: 'POST',
+	// 		headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+	// 		body: new URLSearchParams(formData).toString()
+	// 	})
+	// 		.then(() => {
+	// 			showTYModal = true;
+	// 		})
+	// 		.catch((error) => alert(error));
+	// };
+</script>
 
 <svelte:head>
 	<title>KWD Woodworks</title>
@@ -63,7 +80,8 @@
 			Are you looking for high quality custom built furniture or accesories? We would love to talk
 			to you. Please complete the form below and we'll be in touch.
 		</p>
-		<form name="contact" method="POST" data-netlify="true">
+		<form name="contact" id="contact" method="POST" netlify>
+			<input type="hidden" name="form-name" value="contact" />
 			<div class="formBlock">
 				<label for="name">Name*</label>
 				<input type="text" name="name" id="name" placeholder="Name" required />
