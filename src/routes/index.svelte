@@ -17,32 +17,26 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
 	import Image from '$components/image.svelte';
 	import Projects from '$components/projects.svelte';
 	export let Products;
 	let showTYModal = false;
 
-	// function encode(data) {
-	// 	return Object.keys(data)
-	// 		.map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-	// 		.join('&');
-	// }
-
-	// const handleSubmit = (event) => {
-	// 	event.preventDefault();
-	// 	let myForm = document.getElementById('contact');
-	// 	let formData = new FormData(myForm);
-	// 	fetch('/', {
-	// 		method: 'POST',
-	// 		headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-	// 		body: new URLSearchParams(formData).toString()
-	// 	})
-	// 		.then(() => {
-	// 			showTYModal = true;
-	// 		})
-	// 		.catch((error) => alert(error));
-	// };
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		let myForm = document.getElementById('contact') as HTMLFormElement;
+		let formData = new FormData(myForm);
+		fetch('/', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body: new URLSearchParams(formData).toString()
+		})
+			.then(() => {
+				console.log('Form successfully submitted'), (showTYModal = true);
+			})
+			.catch((error) => alert(error));
+	};
 </script>
 
 <svelte:head>
@@ -80,7 +74,7 @@
 			Are you looking for high quality custom built furniture or accesories? We would love to talk
 			to you. Please complete the form below and we'll be in touch.
 		</p>
-		<form name="Contact" id="contact" method="POST" netlify>
+		<form name="Contact" id="contact" method="POST" netlify action="/">
 			<input type="hidden" name="form-name" value="contact" />
 			<div class="formBlock">
 				<label for="name">Name*</label>
@@ -98,8 +92,11 @@
 				<label for="message">Message*</label>
 				<textarea name="message" id="message" placeholder="Message" required />
 			</div>
-			<button type="submit">Send</button>
+			<button type="submit" on:click={handleSubmit}>Send</button>
 		</form>
+		{#if showTYModal}
+			<div><h1>Bam!</h1></div>
+		{/if}
 	</div>
 </main>
 
