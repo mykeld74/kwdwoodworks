@@ -63,28 +63,24 @@
 			Are you looking for high quality custom built furniture or accesories? We would love to talk
 			to you. Please complete the form below and we'll be in touch.
 		</p>
-
-		<form name="contact" netlify data-netlify="true">
-			<form name="contact" method="POST" data-netlify="true">
-				<input type="hidden" name="form-name" value="name_of_my_form" />
-				<div class="formBlock">
-					<label for="name">Name*</label>
-					<input type="text" name="name" id="name" placeholder="Name" required />
-				</div>
-				<div class="formBlock">
-					<label for="email">Email*</label>
-					<input type="email" name="email" id="email" placeholder="Email" required />
-				</div>
-				<div class="formBlock">
-					<label for="phone">Phone</label>
-					<input type="tel" name="phone" id="phone" placeholder="Phone" />
-				</div>
-				<div class="formBlock">
-					<label for="message">Message*</label>
-					<textarea name="message" id="message" placeholder="Message" required />
-				</div>
-				<button type="submit">Send</button>
-			</form>
+		<form name="contact" method="POST" data-netlify="true">
+			<div class="formBlock">
+				<label for="name">Name*</label>
+				<input type="text" name="name" id="name" placeholder="Name" required />
+			</div>
+			<div class="formBlock">
+				<label for="email">Email*</label>
+				<input type="email" name="email" id="email" placeholder="Email" required />
+			</div>
+			<div class="formBlock">
+				<label for="phone">Phone</label>
+				<input type="tel" name="phone" id="phone" placeholder="Phone" />
+			</div>
+			<div class="formBlock">
+				<label for="message">Message*</label>
+				<textarea name="message" id="message" placeholder="Message" required />
+			</div>
+			<button type="submit">Send</button>
 		</form>
 	</div>
 </main>
