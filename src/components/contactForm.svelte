@@ -4,29 +4,39 @@
 	let formIsValid = false;
 	let showTYModal = false;
 
-	const handleInput = (e) => {
-		const emailTest = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,6}$/;
-
-		if (fields.name.length < 2) {
-			formIsValid = false;
-			errors.name = 'Please enter your name.';
-		} else {
-			errors.name = '';
+	const validateField = (fieldName, value) => {
+		let error = '';
+		switch (fieldName) {
+			case 'name':
+				if (value.length < 2) {
+					errors.name = 'Name must be at least 2 characters long';
+				} else {
+					errors.name = '';
+				}
+				break;
+			case 'email':
+				if (!value.includes('@')) {
+					errors.email = 'Please enter a valid email';
+				} else {
+					errors.email = '';
+				}
+				break;
+			case 'phone':
+				if (value.length < 10) {
+					errors.phone = 'Phone must be at least 10 characters long';
+				} else {
+					errors.phone = '';
+				}
+				break;
+			case 'message':
+				if (value.length < 10) {
+					errors.message = 'Message must be at least 10 characters long';
+				} else {
+					errors.message = '';
+				}
+				break;
 		}
-
-		if (emailTest.test(fields.email) === false) {
-			formIsValid = false;
-			errors.email = 'Please enter a valid email address.';
-		} else {
-			errors.email = '';
-		}
-
-		if (fields.message.length < 3) {
-			formIsValid = false;
-			errors.message = 'Please tell us how we can help you.';
-		} else {
-			errors.message = '';
-		}
+		return error;
 	};
 
 	const handleSubmit = (e) => {
@@ -56,7 +66,7 @@
 
 		e.preventDefault();
 
-		let myForm = document.getElementById('contact') as HTMLFormElement;
+		let myForm = document.getElementById('Contact') as HTMLFormElement;
 		let formData = new FormData(myForm);
 		if (formIsValid) {
 			fetch('/', {
@@ -72,9 +82,9 @@
 	};
 </script>
 
-<form name="Contact" id="Contact" method="POST" netlify action="/">
+<form name="Contact" id="Contact" method="POST">
 	<input type="hidden" name="form-name" value="Contact" />
-	<input name="bot-field" type="text" class="hidden" />
+	<input class="hidden" name="bot-field" />
 	<div class="formBlock">
 		<label for="name">Name*</label>
 		<input
@@ -84,7 +94,7 @@
 			placeholder="Name"
 			required
 			bind:value={fields.name}
-			on:input={handleInput}
+			on:blur={() => validateField('name', fields.name)}
 		/>
 		<p class="error">{errors.name}</p>
 	</div>
@@ -97,20 +107,13 @@
 			placeholder="Email"
 			required
 			bind:value={fields.email}
-			on:input={handleInput}
+			on:blur={() => validateField('email', fields.email)}
 		/>
 		<p class="error">{errors.email}</p>
 	</div>
 	<div class="formBlock">
 		<label for="phone">Phone</label>
-		<input
-			type="tel"
-			name="phone"
-			id="phone"
-			placeholder="Phone"
-			bind:value={fields.phone}
-			on:input={handleInput}
-		/>
+		<input type="tel" name="phone" id="phone" placeholder="Phone" bind:value={fields.phone} />
 		<p class="error">{errors.phone}</p>
 	</div>
 	<div class="formBlock">
@@ -121,7 +124,7 @@
 			placeholder="Message"
 			required
 			bind:value={fields.message}
-			on:input={handleInput}
+			on:blur={() => validateField('message', fields.message)}
 		/>
 		<p class="error">{errors.message}</p>
 	</div>
