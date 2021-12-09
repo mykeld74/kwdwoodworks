@@ -72,8 +72,8 @@
 	};
 </script>
 
-<form name="Contact" id="contact" method="POST" netlify action="/">
-	<input type="hidden" name="form-name" value="contact" />
+<form name="Contact" id="Contact" method="POST" netlify action="/">
+	<input type="hidden" name="form-name" value="Contact" />
 	<input name="bot-field" type="text" class="hidden" />
 	<div class="formBlock">
 		<label for="name">Name*</label>
