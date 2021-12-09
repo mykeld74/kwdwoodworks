@@ -74,6 +74,7 @@
 
 <form name="Contact" id="contact" method="POST" netlify action="/">
 	<input type="hidden" name="form-name" value="contact" />
+	<input name="bot-field" type="text" class="hidden" />
 	<div class="formBlock">
 		<label for="name">Name*</label>
 		<input
@@ -176,5 +177,8 @@
 		font-size: 16px;
 		margin: 0;
 		font-style: italic;
+	}
+	.hidden {
+		display: none;
 	}
 </style>
