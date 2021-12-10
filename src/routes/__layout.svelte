@@ -26,17 +26,17 @@
 	<!-- End Google Tag Manager -->
 </svelte:head>
 
+<!-- Google Tag Manager (noscript) -->
+<noscript
+	><iframe
+		src="https://www.googletagmanager.com/ns.html?id=GTM-PRZ52TC"
+		height="0"
+		width="0"
+		style="display:none;visibility:hidden"
+		title="Google Tag Manager"
+	/></noscript
+>
 <div class={isLoaded ? 'container' : 'isNotLoaded container'}>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript
-		><iframe
-			src="https://www.googletagmanager.com/ns.html?id=GTM-PRZ52TC"
-			height="0"
-			width="0"
-			style="display:none;visibility:hidden"
-			title="Google Tag Manager"
-		/></noscript
-	>
 	<!-- End Google Tag Manager (noscript) -->
 	<slot />
 	<footer>
