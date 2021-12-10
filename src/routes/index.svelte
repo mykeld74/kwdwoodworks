@@ -55,10 +55,6 @@
 	<Projects {Products} />
 	<div class="divider"><p>Contact Us</p></div>
 	<div class="formContainer">
-		<p class="formHeader">
-			Are you looking for high quality custom built furniture or accesories? We would love to talk
-			to you. Please complete the form below and we'll be in touch.
-		</p>
 		<ContactForm />
 	</div>
 </main>
@@ -187,9 +183,5 @@
 		background: rgba(0, 0, 0, 0.8);
 		padding: 20px;
 		border-radius: 10px;
-		p {
-			color: #fff;
-			font-size: clamp(20px, 3.5vw, 26px);
-		}
 	}
 </style>

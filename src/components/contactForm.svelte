@@ -82,54 +82,60 @@
 	};
 </script>
 
-<form name="Contact" id="Contact" method="POST">
-	<input type="hidden" name="form-name" value="Contact" />
-	<input class="hidden" name="bot-field" />
-	<div class="formBlock">
-		<label for="name">Name*</label>
-		<input
-			type="text"
-			name="name"
-			id="name"
-			placeholder="Name"
-			required
-			bind:value={fields.name}
-			on:blur={() => validateField('name', fields.name)}
-		/>
-		<p class="error">{errors.name}</p>
-	</div>
-	<div class="formBlock">
-		<label for="email">Email*</label>
-		<input
-			type="email"
-			name="email"
-			id="email"
-			placeholder="Email"
-			required
-			bind:value={fields.email}
-			on:blur={() => validateField('email', fields.email)}
-		/>
-		<p class="error">{errors.email}</p>
-	</div>
-	<div class="formBlock">
-		<label for="phone">Phone</label>
-		<input type="tel" name="phone" id="phone" placeholder="Phone" bind:value={fields.phone} />
-		<p class="error">{errors.phone}</p>
-	</div>
-	<div class="formBlock">
-		<label for="message">Message*</label>
-		<textarea
-			name="message"
-			id="message"
-			placeholder="Message"
-			required
-			bind:value={fields.message}
-			on:blur={() => validateField('message', fields.message)}
-		/>
-		<p class="error">{errors.message}</p>
-	</div>
-	<button type="submit" on:click={handleSubmit}>Send</button>
-</form>
+{#if !showTYModal}
+	<p class="formHeader">
+		Are you looking for high quality custom built furniture or accesories? We would love to talk to
+		you. Please complete the form below and we'll be in touch.
+	</p>
+	<form name="Contact" id="Contact" method="POST">
+		<input type="hidden" name="form-name" value="Contact" />
+		<input class="hidden" name="bot-field" />
+		<div class="formBlock">
+			<label for="name">Name*</label>
+			<input
+				type="text"
+				name="name"
+				id="name"
+				placeholder="Name"
+				required
+				bind:value={fields.name}
+				on:blur={() => validateField('name', fields.name)}
+			/>
+			<p class="error">{errors.name}</p>
+		</div>
+		<div class="formBlock">
+			<label for="email">Email*</label>
+			<input
+				type="email"
+				name="email"
+				id="email"
+				placeholder="Email"
+				required
+				bind:value={fields.email}
+				on:blur={() => validateField('email', fields.email)}
+			/>
+			<p class="error">{errors.email}</p>
+		</div>
+		<div class="formBlock">
+			<label for="phone">Phone</label>
+			<input type="tel" name="phone" id="phone" placeholder="Phone" bind:value={fields.phone} />
+			<p class="error">{errors.phone}</p>
+		</div>
+		<div class="formBlock">
+			<label for="message">Message*</label>
+			<textarea
+				name="message"
+				id="message"
+				placeholder="Message"
+				required
+				bind:value={fields.message}
+				on:blur={() => validateField('message', fields.message)}
+			/>
+			<p class="error">{errors.message}</p>
+		</div>
+		<button type="submit" on:click={handleSubmit}>Send</button>
+	</form>
+{/if}
 {#if showTYModal}
 	<div><p>Thank you for your submission, we'll be in touch soon.</p></div>
 {/if}
