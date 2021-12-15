@@ -4,6 +4,8 @@
 	export let desc;
 	export let image;
 	export let width;
+	export let categories;
+	export let slug;
 </script>
 
 <div class="card">
@@ -14,6 +16,9 @@
 	<div class="card-body">
 		<h2 class="card-title">{title}</h2>
 		<p class="card-text">{desc}</p>
+		<!-- {#if categories}
+			<p>{categories[0].title}</p>
+		{/if} -->
 	</div>
 </div>
 
@@ -30,5 +35,8 @@
 	}
 	.card-body {
 		padding: 10px 20px;
+	}
+	.card-text {
+		min-height: 56px;
 	}
 </style>
