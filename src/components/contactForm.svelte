@@ -84,7 +84,7 @@
 
 {#if !showTYModal}
 	<p class="formHeader">
-		Are you looking for high quality custom built furniture or accesories? We would love to talk to
+		Are you looking for high quality custom built furniture or accessories? We would love to talk to
 		you. Please complete the form below and we'll be in touch.
 	</p>
 	<form name="Contact" id="Contact" method="POST">
