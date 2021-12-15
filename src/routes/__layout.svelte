@@ -40,11 +40,13 @@
 	<!-- End Google Tag Manager (noscript) -->
 	<slot />
 	<footer>
-		@copyright {year} KWD Woodworks
+		<div><p>@copyright {year} KWD Woodworks</p></div>
+		<div class="moreContent"><p>More content coming soon.</p></div>
+		<div />
 	</footer>
 </div>
 
-<style>
+<style lang="scss">
 	.isNotLoaded {
 		display: none;
 	}
@@ -60,5 +62,20 @@
 		color: #fff;
 		padding: 20px;
 		margin-top: 30px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		@media (max-width: 400px) {
+			flex-direction: column;
+		}
+		div {
+			width: 100%;
+			@media (max-width: 400px) {
+				text-align: center;
+			}
+		}
+	}
+	.moreContent {
+		text-align: center;
 	}
 </style>

@@ -22,16 +22,22 @@
 	</div>
 </div>
 
-<style>
+<style lang="scss">
 	.card {
-		min-height: 395px;
+		min-height: 533px;
 		border-radius: 10px;
 		overflow: hidden;
 		background: #fff;
+		@media (max-width: 400px) {
+			min-height: auto;
+		}
 	}
 	.card-image {
-		height: 250px;
+		height: 300px;
 		overflow: hidden;
+		@media (max-width: 400px) {
+			height: auto;
+		}
 	}
 	.card-body {
 		padding: 10px 20px;
@@ -39,5 +45,12 @@
 	.card-text,
 	.card-title {
 		min-height: 56px;
+		text-align: center;
+	}
+	.card-title {
+		font-size: clamp(26px, 2.5vw, 30px);
+	}
+	.card-text {
+		font-size: clamp(20px, 2vw, 24px);
 	}
 </style>

@@ -12,7 +12,7 @@
 
 	<div class="container">
 		{#each Products as { title, desc, featuredImageUrl, slug, categories }}
-			<Card {title} {desc} image={featuredImageUrl} width="400" {slug} {categories} />
+			<Card {title} {desc} image={featuredImageUrl} width="500" {slug} {categories} />
 		{/each}
 	</div>
 </section>
@@ -20,7 +20,7 @@
 <style>
 	.projects {
 		width: calc(100% - 40px);
-		max-width: 1200px;
+		max-width: 960px;
 		margin: 0 auto;
 		background: rgba(255, 255, 255, 0.7);
 		border-radius: 10px;
@@ -36,7 +36,7 @@
 	}
 	.container {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-around;
