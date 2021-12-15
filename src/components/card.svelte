@@ -36,7 +36,8 @@
 	.card-body {
 		padding: 10px 20px;
 	}
-	.card-text {
+	.card-text,
+	.card-title {
 		min-height: 56px;
 	}
 </style>
