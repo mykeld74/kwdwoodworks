@@ -27,12 +27,17 @@ export default {
 			name: 'featuredImage',
 			title: 'Featured Image',
 			type: 'image',
+			options: {
+				hotspot: true
+			},
 			fields: [
-				{ title: 'Title', name: 'title', type: 'string' },
 				{
 					title: 'Alternative text',
 					name: 'alt',
-					type: 'string'
+					type: 'string',
+					options: {
+						isHighlighted: true // <-- make this field easily accessible
+					}
 				}
 			]
 		},
@@ -109,7 +114,7 @@ export default {
 	preview: {
 		select: {
 			title: 'title',
-			manufactor: 'manufactor.title',
+			subtitle: 'categories.0.title',
 			media: 'featuredImage'
 		}
 	}
