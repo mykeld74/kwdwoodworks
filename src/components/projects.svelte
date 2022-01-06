@@ -17,7 +17,7 @@
 	</div>
 </section>
 
-<style>
+<style lang="scss">
 	.projects {
 		width: calc(100% - 40px);
 		max-width: 960px;

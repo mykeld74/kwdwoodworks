@@ -28,6 +28,7 @@
 		border-radius: 10px;
 		overflow: hidden;
 		background: #fff;
+
 		@media (max-width: 400px) {
 			min-height: auto;
 		}
