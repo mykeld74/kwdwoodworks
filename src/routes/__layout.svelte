@@ -24,6 +24,20 @@
 		})(window, document, 'script', 'dataLayer', 'GTM-PRZ52TC');
 	</script>
 	<!-- End Google Tag Manager -->
+	<!-- Google Analytics -->
+	<script>
+		window.ga = function () {
+			ga.q.push(arguments);
+		};
+		ga.q = [];
+		ga.l = +new Date();
+		ga('create', 'UA-214743878-1', 'auto');
+		ga('set', 'anonymizeIp', true);
+		ga('set', 'transport', 'beacon');
+		ga('send', 'pageview');
+	</script>
+	<script src="https://www.google-analytics.com/analytics.js" async></script>
+	<!--  End Google Analytics -->
 </svelte:head>
 
 <!-- Google Tag Manager (noscript) -->
@@ -36,8 +50,8 @@
 		title="Google Tag Manager"
 	/></noscript
 >
+<!-- End Google Tag Manager (noscript) -->
 <div class={isLoaded ? 'container' : 'isNotLoaded container'}>
-	<!-- End Google Tag Manager (noscript) -->
 	<slot />
 	<footer>
 		<div><p>@copyright {year} KWD Woodworks</p></div>
