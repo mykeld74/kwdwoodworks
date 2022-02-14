@@ -1,5 +1,5 @@
 {
-	"name": "lakewoodchristmas",
+	"name": "kwdwoodworks.com",
 	"version": "0.0.1",
 	"license": "UNLICENSED",
 	"scripts": {
@@ -36,6 +36,7 @@
 	"type": "module",
 	"dependencies": {
 		"autoprefixer": "^10.4.0",
-		"node-sass": "^6.0.1"
+		"node-sass": "^6.0.1",
+		"open-props": "^1.1.1"
 	}
 }
