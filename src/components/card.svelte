@@ -27,15 +27,17 @@
 		min-height: 533px;
 		border-radius: 10px;
 		overflow: hidden;
-		background: #fff;
+		background: var(--gray-0);
+		box-shadow: var(--shadow-3);
 
 		@media (max-width: 400px) {
 			min-height: auto;
 		}
 	}
 	.card-image {
-		height: 300px;
+		/* height: 300px; */
 		overflow: hidden;
+		aspect-ratio: 5/3.25;
 		@media (max-width: 400px) {
 			height: auto;
 		}
