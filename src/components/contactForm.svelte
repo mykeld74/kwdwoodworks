@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { imask } from 'svelte-imask';
 	let fields = { name: '', email: '', phone: '', message: '' };
 	let errors = { name: '', email: '', phone: '', message: '' };
 	let formIsValid = false;
@@ -80,6 +81,9 @@
 				.catch((error) => alert(error));
 		}
 	};
+	const options = {
+		mask: '(000)000-0000'
+	};
 </script>
 
 {#if !showTYModal}
@@ -118,7 +122,14 @@
 		</div>
 		<div class="formBlock">
 			<label for="phone">Phone</label>
-			<input type="tel" name="phone" id="phone" placeholder="Phone" bind:value={fields.phone} />
+			<input
+				use:imask={options}
+				type="tel"
+				name="phone"
+				id="phone"
+				placeholder="Phone"
+				bind:value={fields.phone}
+			/>
 			<p class="error">{errors.phone}</p>
 		</div>
 		<div class="formBlock">
