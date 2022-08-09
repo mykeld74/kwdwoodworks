@@ -93,7 +93,7 @@
 	</p>
 	<form name="Contact" id="Contact" method="POST" netlify-honeypot="details">
 		<input type="hidden" name="form-name" value="Contact" />
-		<input class="hidden" name="details" />
+		<input class="hidden" type="text" name="details" />
 		<div class="formBlock">
 			<label for="name">Name*</label>
 			<input
