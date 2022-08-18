@@ -1,8 +1,4 @@
 <script lang="ts">
-	throw new Error(
-		'@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)'
-	);
-
 	import ContactForm from '$components/contactForm.svelte';
 	import Image from '$components/image.svelte';
 	import Projects from '$components/projects.svelte';
