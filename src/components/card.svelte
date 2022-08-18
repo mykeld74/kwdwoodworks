@@ -4,8 +4,8 @@
 	export let desc;
 	export let image;
 	export let width;
-	export let categories;
-	export let slug;
+	// export let categories;
+	// export let slug;
 </script>
 
 <div class="card">
