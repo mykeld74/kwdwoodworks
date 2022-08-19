@@ -1,27 +1,10 @@
-<script context="module">
-	import client from '$lib/client';
-	export const prerender = true;
-
-	export async function load() {
-		const query = `*[_type == "product"] | order(order asc){
-			_id,
-			title,
-			desc,
-			slug,
-			"additionalImages": images[].asset->originalFilename,
-			"featuredImageUrl": featuredImage.asset->originalFilename,
-			categories[]->{title, "slug":slug.current, parents[]->{title, "slug":slug.current}},
-		}`;
-		const Products = await client.fetch(query);
-		return { props: { Products } };
-	}
-</script>
-
 <script lang="ts">
 	import ContactForm from '$components/contactForm.svelte';
 	import Image from '$components/image.svelte';
 	import Projects from '$components/projects.svelte';
-	export let Products;
+	/** @type {import('./$types').PageData */
+	export let data;
+	$: ({ Products } = data);
 </script>
 
 <svelte:head>
