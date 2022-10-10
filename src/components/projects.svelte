@@ -20,14 +20,15 @@
 <style lang="scss">
 	.projects {
 		width: calc(100% - 40px);
-		max-width: 960px;
+		max-width: 1160px;
 		margin: 0 auto;
 		background: rgba(255, 255, 255, 0.7);
-		border-radius: 10px;
+		border-radius: 0;
 	}
 	.sectionHeadline {
 		font-size: 1.5rem;
 		font-weight: bold;
+		font-family: var(--lightFamily);
 		line-height: 1.3;
 		padding: 20px;
 		margin-bottom: 0;

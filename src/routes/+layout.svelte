@@ -66,10 +66,10 @@
 	}
 
 	.container {
-		background: url(https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto,w_1600/Woodgrain)
-			0 0 / cover no-repeat fixed;
+		/* background: url(https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto,w_1600/Woodgrain)
+			0 0 / cover no-repeat fixed; */
 		width: 100%;
-		min-height: 200vh;
+		/* min-height: 200vh; */
 	}
 	footer {
 		background: #000;

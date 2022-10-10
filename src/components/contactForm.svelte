@@ -152,8 +152,12 @@
 {/if}
 
 <style lang="scss">
+	.formHeader {
+		font-family: var(--lightFamily);
+	}
 	form {
 		width: 100%;
+		font-family: var(--lightFamily);
 	}
 	p {
 		color: #fff;
