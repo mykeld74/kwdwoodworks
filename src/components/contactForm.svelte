@@ -58,7 +58,14 @@
 		Are you looking for high quality custom built furniture or accessories? We would love to talk to
 		you. Please complete the form below and we'll be in touch.
 	</p>
-	<form name="Contact" id="Contact" method="POST" netlify-honeypot="details" use:form>
+	<form
+		name="Contact"
+		id="Contact"
+		method="POST"
+		netlify-honeypot="details"
+		data-netlify-recaptcha="true"
+		use:form
+	>
 		<input type="hidden" name="form-name" value="Contact" />
 		<input class="hidden" type="text" name="details" />
 		<div class="formBlock">
@@ -113,6 +120,7 @@
 				<p class="error" transition:slide>{$errors.message}</p>
 			{/if}
 		</div>
+		<div data-netlify-recaptcha="true" />
 		<button type="submit" on:click={handleSubmit}>Send</button>
 	</form>
 {/if}
