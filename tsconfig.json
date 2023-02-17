@@ -22,19 +22,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
 		"allowJs": true,
-		"checkJs": true,
-		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
-			"$css": ["src/css"],
-			"$css/*": ["src/css/*"],
-			"$components": ["src/components"],
-			"$components/*": ["src/components/*"],
-			"$data": ["src/data"],
-			"$data/*": ["src/data/*"],
-			"$img": ["src/images"],
-			"$img/*": ["src/images/*"],
-		}
-	},
+		"checkJs": true
+		},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
 }
