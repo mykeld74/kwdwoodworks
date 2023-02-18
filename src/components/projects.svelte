@@ -7,7 +7,15 @@
 <section class="projects">
 	<div class="container">
 		{#each Products as { title, desc, featuredImageUrl, slug, categories }}
-			<Card {title} {desc} image={featuredImageUrl} width="500" {slug} {categories} />
+			<Card
+				{title}
+				{desc}
+				image={featuredImageUrl}
+				width="500"
+				{slug}
+				{categories}
+				classes={`homepage ${slug.current}`}
+			/>
 		{/each}
 	</div>
 </section>

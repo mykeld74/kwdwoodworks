@@ -5,22 +5,25 @@
 	export let image;
 	export let width;
 	// export let categories;
-	// export let slug;
+	export let slug;
+	export let classes;
 </script>
 
-<div class="card">
-	<div class="card-image">
-		<Img source={image} altText={title} {width} />
-		<!-- <img src={image} alt={title} /> -->
-	</div>
-	<div class="card-body">
-		<h2 class="card-title">{title}</h2>
-		<p class="card-text">{desc}</p>
-		<!-- {#if categories}
+<a href="/products/{slug.current}">
+	<div class="card">
+		<div class="card-image">
+			<Img source={image} altText={title} {width} {classes} />
+			<!-- <img src={image} alt={title} /> -->
+		</div>
+		<div class="card-body">
+			<h2 class="card-title">{title}</h2>
+			<p class="card-text">{desc}</p>
+			<!-- {#if categories}
 			<p>{categories[0].title}</p>
 		{/if} -->
+		</div>
 	</div>
-</div>
+</a>
 
 <style lang="scss">
 	.card {
@@ -57,5 +60,8 @@
 		font-size: clamp(16px, 2vw, 20px);
 		font-family: var(--lightFamily);
 		font-weight: 100;
+	}
+	a {
+		text-decoration: none;
 	}
 </style>
