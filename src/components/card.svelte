@@ -24,11 +24,10 @@
 
 <style lang="scss">
 	.card {
-		min-height: 500px;
+		min-height: 450px;
 		border-radius: 0;
 		overflow: hidden;
-		background: #464747;
-		box-shadow: var(--shadow-4);
+		background: #222;
 		color: #fff;
 
 		@media (max-width: 400px) {
@@ -38,6 +37,7 @@
 	.card-image {
 		overflow: hidden;
 		aspect-ratio: 5/3;
+		object-fit: cover;
 		@media (max-width: 400px) {
 			height: auto;
 		}
@@ -49,13 +49,13 @@
 	.card-title {
 		min-height: 56px;
 		text-align: center;
-	}
-	.card-title {
 		font-size: clamp(26px, 2.5vw, 30px);
-	}
-	.card-text {
-		font-size: clamp(20px, 2vw, 24px);
-		font-family: var(--lightFamily);
 		font-weight: 300;
+	}
+
+	.card-text {
+		font-size: clamp(16px, 2vw, 20px);
+		font-family: var(--lightFamily);
+		font-weight: 100;
 	}
 </style>

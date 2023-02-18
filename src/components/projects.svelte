@@ -5,11 +5,6 @@
 </script>
 
 <section class="projects">
-	<p class="sectionHeadline">
-		Below are a few of the projects we have completed.<br />Please check back often to see our new
-		projects.
-	</p>
-
 	<div class="container">
 		{#each Products as { title, desc, featuredImageUrl, slug, categories }}
 			<Card {title} {desc} image={featuredImageUrl} width="500" {slug} {categories} />

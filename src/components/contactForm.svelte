@@ -11,14 +11,14 @@
 	const schema = yup.object({
 		name: yup
 			.string()
-			.matches(/^[a-zA-Z\s-]+$/, 'Only letters, dashes and spaces are allowed for this field ')
+			.matches(/^[a-zA-Z\s-']+$/, 'Only letters, dashes and spaces are allowed for this field ')
 			.min(2, 'First Name must be greater then 1 character')
 			.required('First Name is required'),
 		email: yup.string().email('Please enter a valid email').required('Email is required'),
 		message: yup
 			.string()
 			.min(10, 'Message must be at least 10 characters long')
-			.required('Please let us know how we can help you')
+			.required('Please let me know how I can help you')
 	});
 
 	const { form, errors, setFields, touched } = createForm<yup.InferType<typeof schema>>({
@@ -55,8 +55,8 @@
 
 {#if !showTYModal}
 	<p class="formHeader">
-		Are you looking for high quality custom built furniture or accessories? We would love to talk to
-		you. Please complete the form below and we'll be in touch.
+		Are you looking for high quality custom built furniture or accessories? I would love to talk to
+		you. Please complete the form below and I'll be in touch.
 	</p>
 	<form
 		name="Contact"
@@ -125,20 +125,21 @@
 	</form>
 {/if}
 {#if showTYModal}
-	<div><p>Thank you for your submission, we'll be in touch soon.</p></div>
+	<div class="tyContainer"><p>Thank you for your submission, we'll be in touch soon.</p></div>
 {/if}
 
 <style lang="scss">
 	.formHeader {
-		font-family: var(--lightFamily);
+		font-weight: 200;
 	}
 	form {
 		width: 100%;
-		font-family: var(--lightFamily);
+		/* font-family: var(--lightFamily); */
 	}
 	p {
 		color: #fff;
 		font-size: clamp(20px, 3.5vw, 26px);
+		font-weight: 200;
 	}
 
 	.formBlock {
@@ -149,6 +150,7 @@
 			color: #fff;
 			margin: 15px 0 0 0;
 			font-size: clamp(18px, 2.5vw, 22px);
+			font-weight: 200;
 		}
 		input,
 		textarea {
@@ -163,15 +165,25 @@
 		}
 	}
 	button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		width: 100%;
 		padding: 10px 5px;
 		border-radius: 5px;
 		border: none;
 		font-size: clamp(18px, 3vw, 24px);
 		font-weight: 700;
-		background: green;
+		background: var(--accentColor);
 		color: #fff;
 		margin-top: 20px;
+		border: 2px solid var(--accentColor);
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			background: #fff;
+			color: var(--accentColor);
+		}
 	}
 	.error {
 		color: red;

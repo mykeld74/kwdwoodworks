@@ -17,10 +17,11 @@
 
 <main>
 	<div class="hero">
+		<div class="herooverlay" />
 		<!-- <div class="backgroundImage"><Image source="wood" altText="Wood" /></div> -->
 
 		<div class="description">
-			<h1>Handcrafted wood funiture and accessories.</h1>
+			<h1>Handcrafted wood furniture and accessories.</h1>
 		</div>
 		<div class="logoContainer">
 			<div class="logo"><Image source="kwdLogo" altText="KWD Logo" width="350" /></div>
@@ -33,6 +34,14 @@
 					/>
 				</svg>
 			</div>
+		</div>
+	</div>
+	<div class="divider top">
+		<div class="contentContaier">
+			<p>
+				Below are a few of the projects I have completed. Please check back often to see my new
+				projects.
+			</p>
 		</div>
 	</div>
 
@@ -85,7 +94,6 @@
 		padding: 20px;
 		overflow: hidden;
 		gap: 20px;
-		box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 		background: url('https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto/Workbench1')
 			0 65% / cover no-repeat;
 		/* background: url('https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto/Workbench2')
@@ -99,10 +107,25 @@
 		left: 0;
 		z-index: -2;
 	} */
+
+	.herooverlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: 1;
+	}
 	.description {
 		padding: 0;
 		text-shadow: 2px 2px 4px #000000;
 		max-width: 80%;
+		z-index: 5;
+		h1 {
+			font-size: clamp(50px, 5vw, 72px);
+			font-weight: 200;
+		}
 	}
 	.logoContainer {
 		position: relative;
@@ -114,6 +137,7 @@
 		align-items: center;
 		justify-items: center;
 		animation: rollIn 1.5s ease-in-out;
+		z-index: 5;
 		@media (prefers-reduced-motion) {
 			animation-name: none;
 		}
@@ -147,14 +171,25 @@
 	.divider {
 		margin: 20px 0;
 		color: #fff;
-		background: #000;
+		background: var(--darkgrey);
 		padding: 20px;
 		text-align: center;
 		p {
-			font-size: clamp(20px, 5vw, 40px);
+			font-size: clamp(28px, 5vw, 40px);
 			margin: 0;
-			font-weight: 700;
+			font-weight: 200;
 		}
+		&.top {
+			margin-top: 0;
+			background: var(--darkgrey);
+			p {
+				font-size: clamp(24px, 4.2vw, 32px);
+			}
+		}
+	}
+	.contentContaier {
+		max-width: 960px;
+		margin: 0 auto;
 	}
 	.formContainer {
 		width: calc(100% - 40px);
@@ -164,7 +199,7 @@
 		align-items: center;
 		justify-items: center;
 		flex-direction: column;
-		background: rgba(0, 0, 0, 0.8);
+		background: #222;
 		padding: 20px;
 		border-radius: 10px;
 	}
