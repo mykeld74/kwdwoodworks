@@ -8,7 +8,7 @@ export async function load() {
 			desc,
 			slug,
 			"additionalImages": images[].asset->originalFilename,
-			"featuredImageUrl": featuredImage.asset->originalFilename,
+			"featuredImageUrl": featuredImage.public_id,
 			categories[]->{title, "slug":slug.current, parents[]->{title, "slug":slug.current}},
 		}`;
 	const Products = await client.fetch(query);
