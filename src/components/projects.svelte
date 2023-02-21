@@ -1,12 +1,13 @@
 <script>
+	// @ts-ignore
 	import Card from '$components/card.svelte';
 
 	export let Products;
 </script>
 
-<section class="projects">
+<section class="projects" data-sveltekit-preload-code="viewport">
 	<div class="container">
-		{#each Products as { title, desc, featuredImageUrl, slug, categories }}
+		{#each Products as { title, desc, featuredImageUrl, slug, categories, isSold }}
 			<Card
 				{title}
 				{desc}
@@ -15,6 +16,7 @@
 				{slug}
 				{categories}
 				classes={`homepage ${slug.current}`}
+				{isSold}
 			/>
 		{/each}
 	</div>

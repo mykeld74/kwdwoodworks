@@ -38,6 +38,7 @@
 	"type": "module",
 	"dependencies": {
 		"@felte/validator-yup": "^1.0.11",
+		"@portabletext/svelte": "^2.0.0",
 		"autoprefixer": "^10.4.13",
 		"felte": "^1.2.7",
 		"node-sass": "^8.0.0",

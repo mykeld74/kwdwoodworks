@@ -8,10 +8,27 @@ html {
 	--boldFamily: 'Josefin Sans', sans-serif;
 	--lightFamily: 'Inter', sans-serif;
 	--darkgrey: #222222;
+	--red: #880000;
 
 	--accentColor: #006216;
 }
 
 .homepage {
 	height: 100%;
+}
+
+.productContainer {
+	p {
+		font-size: clamp(20px, 2.7vw, 26px);
+	}
+}
+.productPageImg {
+	box-shadow: 20px 20px 0px 0px #000;
+}
+
+.cover {
+	object-fit: cover;
+}
+.contain {
+	object-fit: contain;
 }

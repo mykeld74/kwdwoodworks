@@ -12,6 +12,5 @@
 <style>
 	img {
 		width: 100%;
-		object-fit: cover;
 	}
 </style>

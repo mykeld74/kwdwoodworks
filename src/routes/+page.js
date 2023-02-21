@@ -7,6 +7,7 @@ export async function load() {
 			title,
 			desc,
 			slug,
+			isSold,
 			"additionalImages": images[].asset->originalFilename,
 			"featuredImageUrl": featuredImage.public_id,
 			categories[]->{title, "slug":slug.current, parents[]->{title, "slug":slug.current}},

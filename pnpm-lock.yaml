@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@felte/validator-yup': ^1.0.11
+  '@portabletext/svelte': ^2.0.0
   '@sanity/client': ^5.2.1
   '@sanity/image-url': ^1.0.2
   '@sveltejs/adapter-netlify': ^2.0.5
@@ -32,6 +33,7 @@ specifiers:
 
 dependencies:
   '@felte/validator-yup': 1.0.11_yup@1.0.0
+  '@portabletext/svelte': 2.0.0_svelte@3.55.1
   autoprefixer: 10.4.13_postcss@8.4.21
   felte: 1.2.7_svelte@3.55.1
   node-sass: 8.0.0
@@ -423,6 +425,27 @@ packages:
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
+
+  /@portabletext/svelte/2.0.0_svelte@3.55.1:
+    resolution: {integrity: sha512-fyA2BFC4c/16PJxu1QpI8PC1W32TJjEPHRh69aW19OFYv5m4+7Gd4J4+Oq9C1FTKycNfcUTNaEik07KqhrLPfQ==}
+    peerDependencies:
+      svelte: ^3.47.0
+    dependencies:
+      '@portabletext/toolkit': 2.0.1
+      svelte: 3.55.1
+    dev: false
+
+  /@portabletext/toolkit/2.0.1:
+    resolution: {integrity: sha512-vr2SeDFUFV+VmRIyYsHBMimZLiiN0S7qIridt/YLJs3Wm1dI4jsfUam82AQwheSMjvWdBiBZ+Wsjq5HZBG4htw==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    dependencies:
+      '@portabletext/types': 2.0.2
+    dev: false
+
+  /@portabletext/types/2.0.2:
+    resolution: {integrity: sha512-3xTbSa80G1nODyACY0ilrmPo1PmU1xuoPvfcpzpqSEL0kX01fSW+21PKgS9BcG+GqdG9HK/VxciKWa+nFA7mqg==}
+    engines: {node: ^14.13.1 || >=16.0.0 || >=18.0.0}
+    dev: false
 
   /@sanity/client/5.2.1:
     resolution: {integrity: sha512-fkpVdywu23gPWjNGC+Z2uAM+CFlQuEoDQMc9aVWJQqQwPthD6jCkmTgbwZDscFjTjn6eu6+6s5PHdNM6fPPoDA==}
