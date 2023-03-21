@@ -88,7 +88,6 @@
 	.hero {
 		position: relative;
 		padding: 20px 0;
-
 		background: url('https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto/Workbench1')
 			0 65% / cover no-repeat;
 		/* background: url('https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto/Workbench2')
