@@ -7,8 +7,6 @@
 
 	const width = '500';
 
-	$: console.log('data: ', data.Product[0].additionalImages);
-
 	//loop through images and add to carouselItems array
 	$: carouselItems = [];
 	$: carouselItems.push(featuredImageUrl);
@@ -17,8 +15,6 @@
 			carouselItems.push(image.public_id);
 		});
 	}
-
-	$: console.log('carouselItems: ', carouselItems);
 
 	const checkIsMobile = () => {
 		if (innerWidth < 750) {

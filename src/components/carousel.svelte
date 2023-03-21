@@ -7,8 +7,7 @@
 	let currentSlideItem = 0;
 	let xValIn = 500;
 	let xValOut = -500;
-
-	console.log('carouselItems carousel: ', carouselItems);
+	let autoPlay = false;
 
 	const nextImage = () => {
 		xValIn = 500;
@@ -25,8 +24,6 @@
 		}
 	};
 
-	let autoPlay = true;
-
 	let autoPlayCarousel;
 
 	$: if (autoPlay) {
@@ -39,11 +36,12 @@
 	}
 </script>
 
-<div
+<!-- <div
 	class="carouselWrapper"
 	on:mouseenter={() => (autoPlay = false)}
 	on:mouseleave={() => (autoPlay = true)}
->
+> -->
+<div class="carouselWrapper">
 	<div class="carousel">
 		{#if carouselStyle === 'fade'}
 			{#each [carouselItems[currentSlideItem]] as item (currentSlideItem)}

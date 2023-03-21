@@ -55,8 +55,9 @@
 	.card-image {
 		position: relative;
 		overflow: hidden;
-		aspect-ratio: 5/3;
-		object-fit: cover;
+		aspect-ratio: 5/3.5;
+		// object-fit: cover;
+
 		@media (max-width: 400px) {
 			height: auto;
 		}
