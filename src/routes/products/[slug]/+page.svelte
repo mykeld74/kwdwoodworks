@@ -194,7 +194,7 @@
 	.backToHomeContainer {
 		width: calc(100% - 40px);
 		max-width: 1270px;
-		margin: 0 auto;
+		margin: 0 auto 20px;
 		a {
 			color: #fff;
 			text-decoration: none;
