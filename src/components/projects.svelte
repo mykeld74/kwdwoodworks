@@ -33,7 +33,7 @@
 	.sectionHeadline {
 		font-size: 1.5rem;
 		font-weight: bold;
-		font-family: var(--lightFamily);
+		font-family: var(--secondaryFontFamily);
 		line-height: 1.3;
 		padding: 20px;
 		margin-bottom: 0;

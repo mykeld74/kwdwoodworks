@@ -95,7 +95,7 @@
 
 	.card-text {
 		font-size: clamp(16px, 2vw, 20px);
-		font-family: var(--lightFamily);
+		font-family: var(--secondaryFontFamily);
 		font-weight: 100;
 	}
 	a {

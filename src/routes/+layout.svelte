@@ -81,7 +81,6 @@
 		background: #000;
 		color: #fff;
 		padding: 20px;
-		margin-top: 30px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

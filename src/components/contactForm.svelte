@@ -134,7 +134,8 @@
 	}
 	form {
 		width: 100%;
-		/* font-family: var(--lightFamily); */
+
+		/* font-family: var(--secondaryFontFamily); */
 	}
 	p {
 		color: #fff;
