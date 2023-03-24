@@ -223,6 +223,7 @@
 		width: calc(100% - 40px);
 		max-width: 1270px;
 		margin: 0 auto 20px;
+		padding-bottom: 20px;
 		a {
 			color: #fff;
 			text-decoration: none;
