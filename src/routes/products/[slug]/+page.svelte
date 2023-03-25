@@ -4,6 +4,7 @@
 	import Img from '$components/image.svelte';
 	import { PortableText } from '@portabletext/svelte';
 	import Carousel from '$components/carousel.svelte';
+	import Nav from '$components/nav.svelte';
 
 	const width = '500';
 
@@ -72,6 +73,7 @@
 		</div>
 	</a>
 </header>
+<Nav />
 
 <div class="pageWrapper">
 	<div class="productContainer" in:fade={{ duration: 500 }}>
@@ -136,7 +138,6 @@
 	header {
 		padding: 10px 20px;
 		background: #444;
-		border-bottom: 2px solid #fff;
 	}
 	.logoContainer {
 		position: relative;
@@ -222,7 +223,8 @@
 	.backToHomeContainer {
 		width: calc(100% - 40px);
 		max-width: 1270px;
-		margin: 0 auto 20px;
+		margin: 0 auto;
+		padding-bottom: 20px;
 		a {
 			color: #fff;
 			text-decoration: none;

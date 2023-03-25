@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
 	import Image from '$components/image.svelte';
-	import Projects from '$components/projects.svelte';
+	import ContactForm from '$components/contactForm.svelte';
 	import Nav from '$components/nav.svelte';
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -21,7 +21,7 @@
 		<!-- <div class="backgroundImage"><Image source="wood" altText="Wood" /></div> -->
 		<div class="heroContent">
 			<div class="description">
-				<h1>Products</h1>
+				<h1>Contact Me</h1>
 			</div>
 			<div class="logoContainer">
 				<div class="logo"><Image source="kwdLogo" altText="KWD Logo" width="350" /></div>
@@ -39,16 +39,9 @@
 	</div>
 	<Nav />
 	<main>
-		<div class="divider top">
-			<div class="contentContaier">
-				<p>
-					Below are a few of the projects I have completed. Please check back often to see my new
-					projects.
-				</p>
-			</div>
+		<div class="formContainer">
+			<ContactForm />
 		</div>
-
-		<Projects {Products} />
 	</main>
 </div>
 
@@ -63,54 +56,27 @@
 			transform-origin: center;
 		}
 	}
-	@keyframes rollIn {
-		0% {
-			transform: translate3d(-70vw, 10vh, 0) scale(0.3) rotate3d(0, -5, 0, -120deg);
-		}
-		30% {
-			transform: translate3d(-90vw, 0, 0) scale(0.7);
-		}
-		100% {
-			transform: translate3d(0) scale(1);
-		}
-	}
-	@keyframes zoomIn {
-		0% {
-			transform: scale(0);
-			opacity: 0;
-		}
-		100% {
-			transform: scale(1);
-			opacity: 1;
-		}
-	}
+
 	.hero {
 		position: relative;
 		padding: 20px 0;
 		background: url('https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto,a_90/Woodgrain')
 			0 65% / cover no-repeat;
-		/* background: url('https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto/Workbench2')
-			0 95% / cover no-repeat; */
 	}
-	/* .backgroundImage {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -2;
-	} */
 
 	.heroContent {
-		width: calc(100% - 40px);
+		width: calc(100% - 15vw);
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 		align-items: center;
-		justify-items: center;
+		justify-items: start;
 		margin: 0 auto;
-
 		overflow: hidden;
 		gap: 20px;
+		@media (max-width: 860px) {
+			justify-items: center;
+			width: 100%;
+		}
 	}
 
 	.herooverlay {
@@ -119,7 +85,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: rgba(0, 0, 0, 0.5);
+		background: rgba(0, 0, 0, 0.3);
 		z-index: 1;
 	}
 	.description {
@@ -130,6 +96,8 @@
 		h1 {
 			font-size: clamp(50px, 5vw, 72px);
 			font-weight: 200;
+			margin: 0;
+			color: #fff;
 		}
 	}
 	.logoContainer {
@@ -174,37 +142,16 @@
 			animation-name: none;
 		}
 	}
-	h1 {
-		color: #fff;
-		font-size: clamp(40px, 5vw, 60px);
+	main {
+		min-height: calc(100vh - 380px);
+		background: #464747;
+		padding-top: 40px;
 	}
-	.divider {
-		margin: 20px 0;
-		color: #fff;
-		background: var(--darkgrey);
-		padding: 20px;
-		text-align: center;
-		p {
-			font-size: clamp(28px, 5vw, 40px);
-			margin: 0;
-			font-weight: 200;
-		}
-		&.top {
-			margin-top: 0;
-			background: var(--darkgrey);
-			p {
-				font-size: clamp(24px, 4.2vw, 32px);
-			}
-		}
-	}
-	.contentContaier {
-		max-width: 960px;
-		margin: 0 auto;
-	}
+
 	.formContainer {
 		width: calc(100% - 40px);
 		max-width: 600px;
-		margin: 0 auto;
+
 		display: flex;
 		align-items: center;
 		justify-items: center;
@@ -213,5 +160,6 @@
 		padding: 20px;
 		border-radius: 10px;
 		margin-bottom: 20px;
+		margin: 30px auto;
 	}
 </style>

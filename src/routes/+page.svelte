@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import '$css/homepage.scss';
+	import { fade, fly } from 'svelte/transition';
+	import Nav from '$components/nav.svelte';
 	import Image from '$components/image.svelte';
 	import { gsap } from 'gsap/dist/gsap';
 	import { Flip } from 'gsap/dist/Flip';
@@ -15,7 +17,8 @@
 			detailContent = document.querySelector('.content'),
 			detailImage = document.querySelector('.detail img'),
 			detailTitle = document.querySelector('.detail .title'),
-			detailDescription = document.querySelector('.detail .description');
+			detailDescription = document.querySelector('.detail .description'),
+			detailLink = document.querySelector('.detail .link');
 
 		let activeItem; // keeps track of which item is open (details)
 
@@ -63,6 +66,7 @@
 			detailImage.src = item.querySelector('img').src;
 			detailTitle.innerText = newProduct?.title;
 			detailDescription.innerText = newProduct?.text;
+			detailLink.href = '/products/' + newProduct.link;
 
 			// stagger-fade the items out from the one that was selected in a staggered way (and kill the tween of the selected item)
 			gsap
@@ -129,8 +133,7 @@
 		content="Genuine handcrafted wood furniture and accessories for your home or office."
 	/>
 </svelte:head>
-
-<main>
+<div>
 	<div class="hero">
 		<div class="herooverlay" />
 		<!-- <div class="backgroundImage"><Image source="wood" altText="Wood" /></div> -->
@@ -152,40 +155,48 @@
 			</div>
 		</div>
 	</div>
-	<div class="divider top">
-		<div class="contentContaier">
-			<p>
-				Below are a few of the projects I have completed. Please check back often to see my new
-				projects.
-			</p>
-		</div>
-	</div>
-	<div class="productContainer">
-		<div class="gallery">
-			{#each Products as product}
-				<div
-					class={`item ${product.slug.current}`}
-					data-title={product.title}
-					data-text={product.desc}
-				>
-					<img
-						src={`https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto,w_900/${product.featuredImageUrl}`}
-						alt={product.title}
-					/>
-				</div>
-			{/each}
-		</div>
-	</div>
-</main>
-<div class="detail">
-	<img />
+	<Nav />
 
-	<div class="content">
-		<div class="title">Placeholder title</div>
-		<div class="description">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure cum, est amet delectus,
-			blanditiis voluptatem laborum pariatur consequatur quae voluptate, nisi. Laborum adipisci iste
-			earum distinctio, fugit, quas ipsa impedit.
+	<main>
+		<div class="divider top">
+			<div class="contentContaier">
+				<p>
+					Below are a few of the projects I have completed. Please check back often to see my new
+					projects.
+				</p>
+			</div>
+		</div>
+		<div class="productsContainer">
+			<div class="gallery">
+				{#each Products as product}
+					<div
+						class={`item ${product.slug.current}`}
+						data-title={product.title}
+						data-text={product.desc}
+						data-link={product.slug.current}
+					>
+						<img
+							src={`https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto,w_900/${product.featuredImageUrl}`}
+							alt={product.title}
+						/>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</main>
+	<div class="detail">
+		<img />
+
+		<div class="content">
+			<div class="title">Placeholder title</div>
+			<div class="description">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure cum, est amet delectus,
+				blanditiis voluptatem laborum pariatur consequatur quae voluptate, nisi. Laborum adipisci
+				iste earum distinctio, fugit, quas ipsa impedit.
+			</div>
+			<div>
+				<a class="link" href="#">More Info &rarr;</a>
+			</div>
 		</div>
 	</div>
 </div>
@@ -271,6 +282,15 @@
 		h1 {
 			font-size: clamp(50px, 5vw, 72px);
 			font-weight: 200;
+		}
+	}
+	.link {
+		color: #fff;
+		text-decoration: none;
+		font-size: clamp(18px, 1.5vw, 24px);
+		&:hover {
+			color: #fff;
+			text-decoration: underline;
 		}
 	}
 	.logoContainer {

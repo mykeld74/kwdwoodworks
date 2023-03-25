@@ -1,6 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import '$css/app.scss';
+
 	let isLoaded = false;
 	onMount(() => {
 		isLoaded = true;
