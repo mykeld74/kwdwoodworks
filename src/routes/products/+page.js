@@ -6,7 +6,6 @@ export async function load() {
 			_id,
 			title,
 			desc,
-			fullDesc,
 			slug,
 			isSold,
 			"additionalImages": images[].asset->originalFilename,

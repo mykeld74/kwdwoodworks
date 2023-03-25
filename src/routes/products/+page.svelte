@@ -1,125 +1,10 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import '$css/homepage.scss';
+	import ContactForm from '$components/contactForm.svelte';
 	import Image from '$components/image.svelte';
-	import gsap from 'gsap';
-	import { Flip } from 'gsap/dist/Flip';
-	gsap.registerPlugin(Flip);
+	import Projects from '$components/projects.svelte';
 	/** @type {import('./$types').PageData} */
 	export let data;
 	$: ({ Products } = data);
-
-	onMount(() => {
-		const items = gsap.utils.toArray('.item'),
-			details = document.querySelector('.detail'),
-			detailContent = document.querySelector('.content'),
-			detailImage = document.querySelector('.detail img'),
-			detailTitle = document.querySelector('.detail .title'),
-			detailDescription = document.querySelector('.detail .description');
-
-		let activeItem; // keeps track of which item is open (details)
-
-		gsap.set(detailContent, { yPercent: -100 }); // close the details "drawer" (content) initially
-
-		function showDetails(item) {
-			if (activeItem) {
-				// someone could click on an element behind the open details panel in which case we should just close it.
-				return hideDetails();
-			}
-			let onLoad = () => {
-				// position the details on top of the item (scaled down)
-				Flip.fit(details, item, { scale: true, fitChild: detailImage });
-
-				// record the state
-				const state = Flip.getState(details);
-
-				// set the final state
-				gsap.set(details, { clearProps: true }); // wipe out all inline stuff so it's in the native state (not scaled)
-				gsap.set(details, {
-					xPercent: -50,
-					top: '50%',
-					yPercent: -50,
-					visibility: 'visible',
-					overflow: 'hidden'
-				});
-
-				Flip.from(state, {
-					duration: 0.25,
-					ease: 'power2.inOut',
-					scale: true,
-					// @ts-ignore
-					onComplete: () => gsap.set(details, { overflow: 'auto' }) // to permit scrolling if necessary
-				})
-					// Flip.from() returns a timeline, so add a tween to reveal the detail content. That way, if the flip gets interrupted and forced to completion & killed, this does too.
-					.to(detailContent, { yPercent: 0 }, 0);
-
-				detailImage?.removeEventListener('load', onLoad);
-				document.addEventListener('click', hideDetails);
-			};
-
-			// Change image and text
-			const newProduct = item.dataset;
-			detailImage?.addEventListener('load', onLoad);
-			detailImage.src = item.querySelector('img').src;
-			detailTitle.innerText = newProduct?.title;
-			detailDescription.innerText = newProduct?.text;
-
-			// stagger-fade the items out from the one that was selected in a staggered way (and kill the tween of the selected item)
-			gsap
-				.to(items, {
-					opacity: 0.3,
-					stagger: { amount: 0.3, from: items.indexOf(item), grid: 'auto' }
-				})
-				.kill(item);
-			// gsap.to(".app", { backgroundColor: "#888", duration: 1, delay: 0.3 }); // fade out the background
-			activeItem = item;
-		}
-
-		function hideDetails() {
-			document.removeEventListener('click', hideDetails);
-			gsap.set(details, { overflow: 'hidden' });
-
-			// record the current state of details
-			const state = Flip.getState(details);
-
-			// scale details down so that its detailImage fits exactly on top of activeItem
-			Flip.fit(details, activeItem, { scale: true, fitChild: detailImage });
-
-			// animate the other elements, like all fade all items back up to full opacity, slide the detailContent away, and tween the background color to white.
-			const tl = gsap.timeline();
-			tl.set(details, { overflow: 'hidden' })
-				.to(detailContent, { yPercent: -100 })
-				.to(items, {
-					opacity: 1,
-					stagger: {
-						amount: 0.3,
-						from: items.indexOf(activeItem),
-						grid: 'auto'
-					}
-				});
-
-			// animate from the original state to the current one.
-			Flip.from(state, {
-				scale: true,
-				duration: 0.3,
-				delay: 0.1, // 0.2 seconds because we want the details to slide up first, then flip.
-				onInterrupt: () => tl.kill()
-			}).set(details, { visibility: 'hidden' });
-
-			activeItem = null;
-		}
-
-		// Add click listeners
-		gsap.utils
-			.toArray('.item')
-			.forEach((item) => item.addEventListener('click', () => showDetails(item)));
-
-		// Intro animation
-		window.addEventListener('load', () => {
-			gsap.to('.productContainer', { autoAlpha: 1, duration: 0.2 });
-			gsap.from('.item', { autoAlpha: 0, yPercent: 30, stagger: 0.04 });
-		});
-	});
 </script>
 
 <svelte:head>
@@ -160,35 +45,10 @@
 			</p>
 		</div>
 	</div>
-	<div class="productContainer">
-		<div class="gallery">
-			{#each Products as product}
-				<div
-					class={`item ${product.slug.current}`}
-					data-title={product.title}
-					data-text={product.desc}
-				>
-					<img
-						src={`https://res.cloudinary.com/kwdwoodworks-com/image/upload/f_auto,q_auto,w_900/${product.featuredImageUrl}`}
-						alt={product.title}
-					/>
-				</div>
-			{/each}
-		</div>
-	</div>
-</main>
-<div class="detail">
-	<img />
 
-	<div class="content">
-		<div class="title">Placeholder title</div>
-		<div class="description">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure cum, est amet delectus,
-			blanditiis voluptatem laborum pariatur consequatur quae voluptate, nisi. Laborum adipisci iste
-			earum distinctio, fugit, quas ipsa impedit.
-		</div>
-	</div>
-</div>
+	<Projects {Products} />
+	<div class="divider"><p>Contact Us</p></div>
+</main>
 
 <style lang="scss">
 	@keyframes spin {
@@ -221,9 +81,6 @@
 			transform: scale(1);
 			opacity: 1;
 		}
-	}
-	main {
-		background: #464747;
 	}
 	.hero {
 		position: relative;
@@ -283,7 +140,7 @@
 		align-items: center;
 		justify-items: center;
 		justify-self: end;
-		// animation: rollIn 1.5s ease-in-out;
+		animation: rollIn 1.5s ease-in-out;
 		z-index: 5;
 		margin-right: 40px;
 		@media (prefers-reduced-motion) {
