@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import '$css/homepage.scss';
 	import Image from '$components/image.svelte';
-	import gsap from 'gsap';
+	import { gsap } from 'gsap/dist/gsap';
 	import { Flip } from 'gsap/dist/Flip';
 	gsap.registerPlugin(Flip);
 	/** @type {import('./$types').PageData} */
