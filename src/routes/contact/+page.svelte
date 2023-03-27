@@ -145,7 +145,7 @@
 	main {
 		min-height: calc(100vh - 380px);
 		background: #464747;
-		padding-top: 40px;
+		padding: 40px 0;
 	}
 
 	.formContainer {
@@ -159,7 +159,6 @@
 		background: #222;
 		padding: 20px;
 		border-radius: 10px;
-		margin-bottom: 20px;
 		margin: 30px auto;
 	}
 </style>
