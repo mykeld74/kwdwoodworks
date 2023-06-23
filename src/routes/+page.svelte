@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import '$css/homepage.scss';
-	import { fade, fly } from 'svelte/transition';
-	import Nav from '$components/nav.svelte';
-	import Image from '$components/image.svelte';
+	// @ts-ignore
+	import { Nav, Image } from '$components';
 	import { gsap } from 'gsap/dist/gsap';
 	import { Flip } from 'gsap/dist/Flip';
 	gsap.registerPlugin(Flip);
@@ -15,10 +14,10 @@
 		const items = gsap.utils.toArray('.item'),
 			details = document.querySelector('.detail'),
 			detailContent = document.querySelector('.content'),
-			detailImage = document.querySelector('.detail img'),
-			detailTitle = document.querySelector('.detail .title'),
-			detailDescription = document.querySelector('.detail .description'),
-			detailLink = document.querySelector('.detail .link');
+			detailImage: HTMLImageElement = document.querySelector('.detail img'),
+			detailTitle: HTMLDivElement = document.querySelector('.detail .title'),
+			detailDescription: HTMLDivElement = document.querySelector('.detail .description'),
+			detailLink: HTMLLinkElement = document.querySelector('.detail .link');
 
 		let activeItem; // keeps track of which item is open (details)
 

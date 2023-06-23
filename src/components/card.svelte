@@ -1,6 +1,5 @@
-<script>
-	// @ts-ignore
-	import Img from '$components/image.svelte';
+<script lang="ts">
+	import { Image } from '$components';
 	export let title;
 	export let desc;
 	export let image;
@@ -14,7 +13,7 @@
 <a href="/products/{slug.current}">
 	<div class="card">
 		<div class="card-image">
-			<Img source={image} altText={title} {width} {classes} />
+			<Image source={image} altText={title} {width} {classes} />
 			{#if isSold}
 				<div class="sold">
 					<p>Sold</p>
